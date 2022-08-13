@@ -35,9 +35,12 @@
             this.StopButton = new System.Windows.Forms.Button();
             this.SelectFolderButton = new System.Windows.Forms.Button();
             this.RecordButton = new System.Windows.Forms.Button();
-            this.timerRecord = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SelectedFolderLabel = new System.Windows.Forms.Label();
+            this.timerRecord = new System.Windows.Forms.Timer(this.components);
+            this.TextRunTimer = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -49,7 +52,7 @@
             this.tableLayoutPanel1.Controls.Add(this.StopButton, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.SelectFolderButton, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.RecordButton, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.SelectedFolderLabel, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -57,7 +60,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(262, 92);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(262, 100);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // TimeLbl
@@ -102,28 +105,43 @@
             this.RecordButton.UseVisualStyleBackColor = true;
             this.RecordButton.Click += new System.EventHandler(this.RecordButton_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.SetColumnSpan(this.panel1, 2);
+            this.panel1.Controls.Add(this.SelectedFolderLabel);
+            this.panel1.Location = new System.Drawing.Point(3, 73);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(256, 24);
+            this.panel1.TabIndex = 5;
+            // 
+            // SelectedFolderLabel
+            // 
+            this.SelectedFolderLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.SelectedFolderLabel.AutoSize = true;
+            this.SelectedFolderLabel.Location = new System.Drawing.Point(3, 5);
+            this.SelectedFolderLabel.Name = "SelectedFolderLabel";
+            this.SelectedFolderLabel.Size = new System.Drawing.Size(81, 13);
+            this.SelectedFolderLabel.TabIndex = 4;
+            this.SelectedFolderLabel.Text = "Selected Folder";
+            this.SelectedFolderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.SelectedFolderLabel.Click += new System.EventHandler(this.SelectedFolderLabel_Click);
+            // 
             // timerRecord
             // 
             this.timerRecord.Interval = 15;
             this.timerRecord.Tick += new System.EventHandler(this.TimerRecord_Tick);
             // 
-            // SelectedFolderLabel
+            // TextRunTimer
             // 
-            this.SelectedFolderLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.SelectedFolderLabel.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.SelectedFolderLabel, 2);
-            this.SelectedFolderLabel.Location = new System.Drawing.Point(3, 74);
-            this.SelectedFolderLabel.Name = "SelectedFolderLabel";
-            this.SelectedFolderLabel.Size = new System.Drawing.Size(256, 13);
-            this.SelectedFolderLabel.TabIndex = 4;
-            this.SelectedFolderLabel.Text = "Selected Folder";
-            this.SelectedFolderLabel.Click += new System.EventHandler(this.SelectedFolderLabel_Click);
+            this.TextRunTimer.Interval = 300;
+            this.TextRunTimer.Tick += new System.EventHandler(this.TextRunTimer_Tick);
             // 
             // Recorder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(262, 92);
+            this.ClientSize = new System.Drawing.Size(262, 100);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -136,6 +154,8 @@
             this.Load += new System.EventHandler(this.Recorder_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -149,6 +169,8 @@
         private System.Windows.Forms.Timer timerRecord;
         private System.Windows.Forms.Label TimeLbl;
         private System.Windows.Forms.Label SelectedFolderLabel;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Timer TextRunTimer;
     }
 }
 

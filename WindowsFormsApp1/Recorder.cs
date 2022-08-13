@@ -1,4 +1,5 @@
-﻿using System;
+﻿using com.sun.tools.javadoc;
+using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -34,6 +35,17 @@ namespace ScreenRecorder
                 SelectedFolderLabel.Text = "Selected Folder: " + outputPath;
 
                 SelectFolderButton.BackColor = Color.SpringGreen;
+
+                if (SelectedFolderLabel.Text.Length > 30)
+                {
+                    TextRunTimer.Tick += TextRunTimer_Tick;
+                    TextRunTimer.Start();
+                }
+                else
+                {
+                    TextRunTimer.Stop();
+                    SelectedFolderLabel.Left = 0;
+                }
             }
             else
             {
@@ -76,12 +88,20 @@ namespace ScreenRecorder
 
         private void Recorder_Load(object sender, EventArgs e)
         {
+            DoubleBuffered = true;
+
             string outputPath = "";
             using (StreamReader sr = new StreamReader(@"D:\Repos\ScreenRecorder\WindowsFormsApp1\Folder.txt"))
             {
                 outputPath = sr.ReadLine();
             }
             SelectedFolderLabel.Text = "Selected Folder: " + outputPath;
+
+            if (SelectedFolderLabel.Text.Length > 30)
+            {
+                TextRunTimer.Tick += TextRunTimer_Tick;
+                TextRunTimer.Start();
+            }
         }
 
         private void SelectedFolderLabel_Click(object sender, EventArgs e)
@@ -89,6 +109,18 @@ namespace ScreenRecorder
             Clipboard.Clear();
             Clipboard.SetText(SelectedFolderLabel.Text);
             MessageBox.Show("The path is copied to the buffer", "Attension", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void TextRunTimer_Tick(object sender, EventArgs e)
+        {
+            if (SelectedFolderLabel.Left > -SelectedFolderLabel.Width)
+            {
+                SelectedFolderLabel.Left -= 5;
+            }
+            else
+            {
+                SelectedFolderLabel.Left = panel1.Width;
+            }
         }
     }
 }
