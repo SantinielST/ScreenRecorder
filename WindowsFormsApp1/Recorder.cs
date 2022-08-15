@@ -34,8 +34,6 @@ namespace ScreenRecorder
                 }
                 SelectedFolderLabel.Text = "Selected Folder: " + outputPath;
 
-                SelectFolderButton.BackColor = Color.SpringGreen;
-
                 if (SelectedFolderLabel.Text.Length > 30)
                 {
                     TextRunTimer.Tick += TextRunTimer_Tick;
