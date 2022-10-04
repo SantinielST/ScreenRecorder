@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScreenRecorder", "WindowsFormsApp1\ScreenRecorder.csproj", "{8C197A89-195E-4369-8726-042511EE1106}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScreenRecorder", "SR\ScreenRecorder.csproj", "{8C197A89-195E-4369-8726-042511EE1106}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
