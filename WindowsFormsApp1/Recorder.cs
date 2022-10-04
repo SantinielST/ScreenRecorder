@@ -1,5 +1,4 @@
-﻿using com.sun.tools.javadoc;
-using System;
+﻿using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -47,7 +46,7 @@ namespace ScreenRecorder
             }
             else
             {
-               return;
+                return;
             }
         }
 
@@ -93,6 +92,7 @@ namespace ScreenRecorder
             {
                 outputPath = sr.ReadLine();
             }
+
             SelectedFolderLabel.Text = "Selected Folder: " + outputPath;
 
             if (SelectedFolderLabel.Text.Length > 30)
